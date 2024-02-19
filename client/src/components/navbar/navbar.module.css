@@ -1,0 +1,36 @@
+
+.navbar li{
+margin: 0.3rem;
+}
+
+
+.navbar li:hover{
+    background-color: #0093E9 !important;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    border-radius: 0.4rem;
+}
+
+.navbar li span:hover,.navHomeBtn:hover{
+    color: white;
+
+}
+
+
+
+.liElement{
+    text-align: center;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+
+.liElement:hover{
+    background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+border-radius: 0.2rem;
+}
+
+
+.liElement:hover a{
+    color: white;
+}
+
