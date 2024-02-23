@@ -1,11 +1,12 @@
 "use client"
 import { useEffect } from 'react';
 
-import Link from 'next/link';
 import Image from 'next/image';
 
 
 import styles from "./navbar.module.css";
+import DropdownLi from './dropdownLi';
+import DropdownSpan from './DropdownSpan';
 
 
 
@@ -33,44 +34,26 @@ const Navbar = () => {
           </li>
 
           <li className="nav-item dropdown">
-            <span className='nav-link dropdown-toggle' role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Drivers
-            </span>
+            <DropdownSpan buttonText={"Drivers"}/>
             <ul className="dropdown-menu">
-              <li className={styles.liElement}>
-               <Link href={"/add-driver"}> Add new driver </Link>
-               </li>
-               <li className={styles.liElement}>
-               <Link href={"/list-drivers"}> List all drivers </Link>
-               </li>
+               <DropdownLi hrefLink={"add-driver"} hrefText={"Add driver"}/>
+               <DropdownLi hrefLink={"list-drivers"} hrefText={"List all drivers"}/>
             </ul>
           </li>
 
           <li className="nav-item dropdown">
-            <span className='nav-link dropdown-toggle' role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Trucks
-            </span>
+          <DropdownSpan buttonText={"Trucks"}/>
             <ul className="dropdown-menu">
-            <li className={styles.liElement}>
-               <Link href={"/add-truck"}> Add new truck </Link>
-               </li>
-               <li className={styles.liElement}>
-               <Link href={"/list-trucks"}> List all trucks </Link>
-               </li>
+            <DropdownLi hrefLink={"add-truck"} hrefText={"Add new truck"}/>
+            <DropdownLi hrefLink={"list-trucks"} hrefText={"List all trucks"}/>
             </ul>
           </li>
 
           <li className="nav-item dropdown">
-            <span className='nav-link dropdown-toggle' role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Trips
-            </span>
+          <DropdownSpan buttonText={"Trips"}/>
             <ul className="dropdown-menu">
-            <li className={styles.liElement}>
-               <Link href={"/add-trip"}> Add new trip </Link>
-               </li>
-               <li className={styles.liElement}>
-               <Link href={"/list-trips"}> List all trips </Link>
-               </li>
+            <DropdownLi hrefLink={"add-trip"} hrefText={"Add new trip"}/>
+               <DropdownLi hrefLink={"list-trips"} hrefText={"List all trips"}/>
             </ul>
           </li>
 

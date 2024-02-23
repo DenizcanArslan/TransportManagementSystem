@@ -1,7 +1,13 @@
+import DriverForm from "@/components/driverForm/DriverForm";
 
 const addNewDriverPage = () => {
   return (
-    <div> Add new Driver</div>
+    <div className="container">
+
+        <DriverForm/>
+
+
+    </div>
   )
 }
 
