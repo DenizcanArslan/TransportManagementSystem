@@ -1,0 +1,25 @@
+.editBtn, .deleteBtn{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+
+.editBtn{
+    color: blue;
+}
+
+.editBtn:hover{
+    color: rgb(167, 19, 242);
+}
+
+ .deleteBtn{
+    color: rgb(199, 0, 40);
+}
+
+.deleteBtn:hover{
+    color: rgb(255, 60, 60);
+}
+
