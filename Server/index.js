@@ -21,6 +21,8 @@ try {
 
 
 
+//-------DRIVERS------
+
 //gets all drivers from database
 app.get("/drivers",async(req,res)=>{
 
@@ -28,7 +30,6 @@ app.get("/drivers",async(req,res)=>{
         const allData= await db.query(`SELECT * FROM drivers`);
 
         res.json(allData.rows);
-        console.log(allData.rows);
     } catch (err) {
             console.error(err.message);
     }
@@ -102,6 +103,71 @@ app.post("/submitDriverForm", async(req,res)=>{
     }
 
 });
+
+
+//----------TRUCKS--------
+
+//gets all trucks data from database
+app.get("/trucks",async(req,res)=>{
+    try {
+            const response=await db.query(`SELECT * FROM trucks`);
+            res.json(response.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+//gets a truck data from database
+app.get("/truck/:id",async(req,res)=>{
+    try {
+        const {id}=req.params;
+        const response=await db.query("SELECT * FROM trucks WHERE truck_id=($1)",[id]);
+        res.json(response.rows[0]);
+    } catch (err) {
+        console.error(err.message)
+    }
+    
+});
+
+//delete a truck data from databse
+app.delete("/truck/:id",async(req,res)=>{
+    try {
+        const {id}=req.params;
+        await db.query("DELETE FROM trucks WHERE truck_id=($1)",[id])
+        res.json({message:"Truck data is deleted sucessfully"});
+    } catch (err) {
+        console.error(err.message);
+    }
+   
+})
+
+
+
+//update truck data 
+app.put("/truck/:id",async(req,res)=>{
+    try {
+        const {id}=req.params;
+        const {brand,model,manufacture_year,truck_plate}=req.body;
+        const updatedTruck=await db.query(`UPDATE trucks SET brand= ($1),model=($2),manufacture_year=($3),truck_plate=($4) WHERE truck_id=($5)`
+        ,[brand,model,manufacture_year,truck_plate,id]);
+    
+        res.json({message:"Truck data was updated !!"});
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+//add new truck data to database
+app.post("/submitTruckForm",async(req,res)=>{
+    try {
+        const {brand,model,manufacture_year,truck_plate}=req.body;
+        await db.query(`INSERT INTO trucks (brand,model,manufacture_year,truck_plate) VALUES ($1,$2,$3,$4)`,[brand,model,manufacture_year,truck_plate]);
+        res.status(201).send(`Truck data added to the database`);
+    } catch (err) {
+        console.error(err.message);
+    }
+
+})
 
 
 

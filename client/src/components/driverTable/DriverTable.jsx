@@ -70,6 +70,7 @@ const updateUser=async()=>{
      try {
          const response=await axios.put(`http://localhost:5000/driver/${DriverId}`,formData); 
          console.log(`UPDATE SUCESSFULL; `,response.data);
+         getData();
      } catch (err) {
          console.error(err.message);
      }
